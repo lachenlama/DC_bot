@@ -21,11 +21,14 @@ def getTelegraph():
         content_storage = []
         content = soup.find_all('div', attrs={'class':"uk-text-69 noto-regular pt-1 searchCard_desr"})
         for i in content:
-            content_storage.append(i)
+            content_storage.append(i.text.replace('\n', " ").replace('\t', " ").replace("  ", ' '))   
         return content_storage
 
-    for j in title():
-        print()
-        print(j)
+    title_list = title()
+    content_list = content()
+    for t in title_list:
+        print("Title - ", t)
+    for c in content_list:
+        print("Contents - ", c)
 
 getTelegraph()
