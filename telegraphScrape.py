@@ -26,9 +26,9 @@ def getTelegraph():
 
     title_list = title()
     content_list = content()
-    for t in title_list:
-        print("Title - ", t)
-    for c in content_list:
-        print("Contents - ", c)
+    ret_dict={}
+    for i in range(0,len(title_list)-2):
+        ret_dict[title_list[i]]=content_list[i]
+    return ret_dict
 
-getTelegraph()
+print(getTelegraph())
